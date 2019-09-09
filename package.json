@@ -1,0 +1,46 @@
+{
+  "name": "npmrcd",
+  "version": "0.1.0",
+  "description": "",
+  "main": "daemon-script.js",
+  "scripts": {
+    "format": "standard --fix bin/*.js lib/*.js",
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "bin": {
+    "remove": "bin/npmrcd-remove.js",
+    "setup": "bin/npmrcd-setup.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evanshortiss/npmrc-daemon.git"
+  },
+  "keywords": [
+    "npmrc",
+    "npmrcd"
+  ],
+  "author": "Evan Shortiss",
+  "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format"
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/evanshortiss/npmrc-daemon/issues"
+  },
+  "homepage": "https://github.com/evanshortiss/npmrc-daemon#readme",
+  "dependencies": {
+    "barelog": "~0.2.0",
+    "delay": "^4.3.0",
+    "execa": "~2.0.4",
+    "node-notifier": "^5.4.3",
+    "npmrc": "~1.1.1",
+    "rimraf": "~3.0.0",
+    "yargs": "~14.0.0"
+  },
+  "devDependencies": {
+    "husky": "^3.0.5",
+    "standard": "^14.1.0"
+  }
+}
