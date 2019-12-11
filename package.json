@@ -34,6 +34,7 @@
     "barelog": "~0.2.0",
     "delay": "^4.3.0",
     "execa": "~2.0.4",
+    "expand-tilde": "^2.0.2",
     "node-notifier": "^5.4.3",
     "npmrc": "~1.1.1",
     "rimraf": "~3.0.0",
