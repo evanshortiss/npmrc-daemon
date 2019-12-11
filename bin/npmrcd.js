@@ -26,12 +26,29 @@ yargs.help(
 
 const argv = yargs.argv
 
-if (!argv.registry) {
-  log('\nPlease supply a --registry parameter for your registry URL\n')
-  process.exit(1)
+;(async function main () {
+  console.log(process.argv)
+  if (process.argv[2] === 'setup') {
+    setup()
+  } else if (process.argv[2] === 'remove') {
+    remove()
+  } else {
+    yargs.showHelp()
+  }
+})()
+
+async function remove () {
+  log('Removing npmrc daemon.')
+  await daemon.remove()
+  log('Successfully removed. Your .npmrc configs are still available in ~/.npmrcs')
 }
 
-;(async function main () {
+async function setup () {
+  if (!argv.registry) {
+    log('\nPlease supply a --registry parameter for your registry URL\n')
+    process.exit(1)
+  }
+
   // (Re)initialise the ~/.npmrcd directory
   config.initialise(argv.force)
 
@@ -57,16 +74,16 @@ if (!argv.registry) {
   await npmrc.setupProfiles(argv.registry, caFilepath)
   await npmrc.enableDefaultProfile()
   await daemon.setup()
-})()
 
-/**
- * Even if a single trigger ssid is given we need to pass an array to config
- * @param {String|String[]|undefined} triggers
- */
-function formatTriggerSSIDs (triggers = []) {
-  if (Array.isArray(triggers)) {
-    return triggers
-  } else {
-    return [triggers]
+  /**
+   * Even if a single trigger ssid is given we need to pass an array to config
+   * @param {String|String[]|undefined} triggers
+   */
+  function formatTriggerSSIDs (triggers = []) {
+    if (Array.isArray(triggers)) {
+      return triggers
+    } else {
+      return [triggers]
+    }
   }
 }

@@ -1,16 +1,13 @@
 {
   "name": "npmrcd",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "CLI that installs a daemon/agent that will automatically switch between npm registries on a developer machine.",
   "main": "daemon-script.js",
   "scripts": {
     "format": "standard --fix bin/*.js lib/*.js",
     "test": "echo \"Error: no test specified\" && exit 0"
   },
-  "bin": {
-    "remove": "bin/npmrcd-remove.js",
-    "setup": "bin/npmrcd-setup.js"
-  },
+  "bin": "bin/npmrcd.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/evanshortiss/npmrc-daemon.git"
