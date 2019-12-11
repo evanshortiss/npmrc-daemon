@@ -27,7 +27,6 @@ yargs.help(
 const argv = yargs.argv
 
 ;(async function main () {
-  console.log(process.argv)
   if (process.argv[2] === 'setup') {
     setup()
   } else if (process.argv[2] === 'remove') {

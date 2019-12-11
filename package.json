@@ -1,6 +1,6 @@
 {
   "name": "npmrcd",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "CLI that installs a daemon/agent that will automatically switch between npm registries on a developer machine.",
   "main": "daemon-script.js",
   "scripts": {
