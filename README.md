@@ -27,13 +27,19 @@ more complex triggers if necessary.
 * npm 6+
 * macOS (PRs adding Linux daemon setups are very welcome)
 
+## Install
+
+```
+npm install -g npmrcd
+```
+
 ## Setup
 
-Run the setup script using `npx`. The *registry* parameter is required. 
+Run the setup command after installing. The *registry* parameter is required. 
 
 ```bash
 # Install and setup the daemon with a cafile for the registry
-npx npmrcd setup \
+npmrcd setup \
  --cafile="https://certs.acme.com/ACME-Root-CA.crt" \
  --registry="https://eng.acme.com/nexus/repository/registry.npmjs.org"
 ```
@@ -53,7 +59,7 @@ if the address can be resolved using DNS or the machine is connected to one of
 the listed SSIDs.
 
 ```bash
-npx npmrcd setup \
+npmrcd setup \
  --triggerssid="Acme Guest Wifi" \
  --triggerssid="Acme Customer Wifi" \
  --cafile="https://certs.acme.com/ACME-Root-CA.crt" \
@@ -68,7 +74,8 @@ detail in the [npm-config docs](https://docs.npmjs.com/misc/config).
 
 ```bash
 # Remove the daemon
-npx npmrcd remove
+npmrcd remove
+npm uninstall -g npmrcd
 ```
 
 ## Daemon Logs
